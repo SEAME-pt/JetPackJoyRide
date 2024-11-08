@@ -3,5 +3,5 @@
 </p>
 
 <p align="center">
-Main repo of our team with the objective of building a functioning intelligent mobility system and its documentation.
+Main repository of our team with the objective of building a functioning intelligent mobility system and its documentation.
 </p>
