@@ -14,7 +14,7 @@ The JetRacer project requires a software framework for handling communication be
 - **System Overload**: Managing resource contention and load distribution effectively.
 
 ## Decision
-The following safety measures will be adopted to mitigate the risks:
+The following safety measures could be adopted to mitigate the risks:
 
 ### 1. Redundancy
 - **Node Redundancy**: Deploy redundant nodes for safety-critical functions, with a primary-backup setup. Use heartbeats to monitor node health and enable seamless failover.
@@ -40,14 +40,9 @@ The following safety measures will be adopted to mitigate the risks:
   - Implement checksums or hash-based integrity validation for critical messages.
 
 ### 5. Fault Isolation
-- **Containerization**: Isolate non-critical nodes using lightweight containers (e.g., Docker) to prevent failures from propagating.
 - **Prioritization**:
   - Ensure critical nodes are prioritized for CPU, memory, and network resources.
   - Deactivate non-critical nodes when resource contention occurs.
-
-### 6. Load Balancing
-- Distribute computational load across multiple hardware units, offloading non-critical tasks to secondary processors or microcontrollers.
-- Regularly profile system performance using ROS2 Tracing to identify bottlenecks and optimize high-frequency nodes.
 
 ## Consequences
 ### Benefits
@@ -65,5 +60,5 @@ The following safety measures will be adopted to mitigate the risks:
 Accepted
 
 ## Related ADRs
-- [ADR-0002: Using ROS2 with Fast DDS Middleware](#adr_001_use_ros2.md)
+- [ADR-001: Using ROS2 with Fast DDS Middleware](#adr_001_use_ros2.md)
 
