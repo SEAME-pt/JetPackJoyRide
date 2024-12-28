@@ -1,7 +1,4 @@
-# ADR-XXXX: I2C Interface Abstraction and Testing Strategy
-
-## Status
-Accepted
+# ADR-005: I2C Interface Abstraction and Testing Strategy
 
 ## Context
 The JetRacer project requires reliable I2C communication for various peripherals, including the OLED display. Testing I2C-dependent components traditionally requires physical hardware, making unit testing difficult and potentially unreliable. Additionally, direct system calls for I2C communication create tight coupling between the business logic and hardware implementation.
