@@ -6,7 +6,6 @@ The JetRacer project requires reliable interaction with hardware components, suc
 The key considerations are:
 - **Testability**: Ability to test hardware-dependent components without physical hardware
 - **Dependency Injection**: Flexibility to use mock objects for testing
-- **Error Handling**: Proper handling of errors in hardware interactions
 - **Maintainability**: Decouple business logic from hardware implementations
 
 ## Decision
