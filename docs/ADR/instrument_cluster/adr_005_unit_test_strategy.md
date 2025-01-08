@@ -1,79 +1,36 @@
-# ADR-005: I2C Interface Abstraction and Testing Strategy
+# ADR-005: Dependency Injection and Testing Strategy for ROS2 Nodes
 
 ## Context
-The JetRacer project requires reliable I2C communication for various peripherals, including the OLED display. Testing I2C-dependent components traditionally requires physical hardware, making unit testing difficult and potentially unreliable. Additionally, direct system calls for I2C communication create tight coupling between the business logic and hardware implementation.
+The JetRacer project requires reliable interaction with hardware components, such as motor drivers and sensors. Testing components that depend on hardware traditionally requires physical devices, which can make unit testing difficult, time-consuming, and unreliable. Additionally, direct system calls or tightly coupled hardware dependencies in business logic can hinder maintainability and reusability.
 
 The key considerations are:
-- **Testability**: Need to test I2C-dependent components without physical hardware
-- **Dependency Injection**: Allow for different I2C implementations (real hardware vs. mock)
-- **Error Handling**: Properly handle I2C communication errors and retries
-- **Code Reusability**: Create a consistent interface for all I2C communications
-- **Maintainability**: Separate hardware-specific code from business logic
+- **Testability**: Ability to test hardware-dependent components without physical hardware
+- **Dependency Injection**: Flexibility to use mock objects for testing
+- **Error Handling**: Proper handling of errors in hardware interactions
+- **Maintainability**: Decouple business logic from hardware implementations
 
 ## Decision
-The solution involves creating an abstraction layer for I2C communication through the following components:
+The solution involves designing a dependency injection strategy for ROS2 nodes and creating mock implementations to facilitate unit testing. This is achieved through the following components:
 
-1. **Abstract I2C Interface**:
-   Create an abstract class (`AI2cDevice`) that defines the interface for I2C operations:
-   - Virtual methods for basic I2C operations (open, read, write, setAddress)
-   - Clear documentation of expected behavior and error conditions
-   - Protected member for device file descriptor
+1. **Abstract Interface**:
+   Create abstract classes for hardware interfaces (e.g., `APCA9685Driver`, `AI2cDevice`) that define methods for interacting with hardware components:
+   - Virtual methods for core operations (e.g., initialization, reading, writing, setting parameters)
+   - Enables polymorphic use of real or mock implementations
 
 2. **Concrete Implementation**:
-   Implement a concrete class (`I2cDevice`) that handles actual hardware communication:
-   - Proper buffer handling for read/write operations
-   - Retry mechanism for failed operations
-   - Error reporting through return values
-   - Resource cleanup in destructor
+   Provide concrete classes for actual hardware implementations, including:
+   - Proper buffer management and resource cleanup
+   - Error handling and retry mechanisms for hardware communication
+   - Adherence to the abstract interface
 
-3. **ROS2 Service Interface**:
-   Create a ROS2 service node (`I2cInterface`) that:
-   - Accepts I2C read/write requests through a custom service
-   - Uses dependency injection to accept any `AI2cDevice` implementation
-   - Handles service requests and responses with proper error reporting
+3. **Dependency Injection in Nodes**:
+   Design ROS2 nodes to accept dependencies as constructor arguments:
+   - Accept instances of the abstract interface (e.g., `std::shared_ptr<IPCA9685Driver>`) for flexibility
+   - Decouple the ROS2 node logic from hardware-specific details
+   - Enable testing by injecting mock implementations
 
-4. **Mock Implementation**:
-   Create a mock I2C device (`MockI2cDevice`) for testing that:
-   - Implements the `AI2cDevice` interface
-   - Allows setting expected responses and verifying calls
-   - Simulates common I2C errors and edge cases
-
-5. **Error Handling Strategy**:
-   Implement comprehensive error handling:
-   ```cpp
-   if (i2c_device_.setAddress(request->device_address) != 0) {
-       std::string error_msg = fmt::format(
-           "Fail to set the device at address 0x{:02X}",
-           request->device_address);
-       RCLCPP_ERROR(this->get_logger(), "%s", error_msg.c_str());
-       response->set__success(false);
-       response->set__message(error_msg);
-       return;
-   }
-   ```
-
-## Benefits
-- **Improved Testability**: Unit tests can run without physical hardware
-- **Separation of Concerns**: Hardware implementation details are isolated
-- **Consistent Interface**: All I2C communications follow the same pattern
-- **Better Error Handling**: Centralized error handling and retry logic
-- **Maintainable Code**: Easy to modify or replace I2C implementation
-- **Reusable Components**: Abstract interface can be used across different projects
-
-## Consequences
-
-### Positive
-- Unit tests can be written and run without hardware dependencies
-- Easier to implement and test error handling
-- Clear separation between hardware and business logic
-- Consistent error handling across all I2C operations
-
-### Negative
-- Additional complexity in the codebase
-- Need to maintain mock implementations
-- Possible overhead from abstraction layer
-
-## References
-- Linux I2C documentation
-- ROS2 service interface documentation
-- Google Test/Mock documentation
+4. **Mock Implementations for Testing**:
+   Create mock classes for hardware dependencies using frameworks like Google Mock:
+   - Implement the abstract interface
+   - Allow setting expectations and simulating various hardware responses
+   - Test edge cases and error scenarios without physical hardware
