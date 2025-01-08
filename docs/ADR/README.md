@@ -6,5 +6,6 @@
 3. [ADR-002: Safety considerations](instrument_cluster/adr_002_safety_considerations.md)
 4. [ADR-003: Project structure](instrument_cluster/adr_003_project_structure.md)
 5. [ADR-004: System services](instrument_cluster/adr_004_system_services.md)
+6. [ADR-005: Testing strategy](instrument_cluster/adr_005_unit_test_strategy.md)
 
 ## Project 2
