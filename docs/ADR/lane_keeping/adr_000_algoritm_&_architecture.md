@@ -1,17 +1,16 @@
 # ADR-006: Lane Detection Implementation Strategy for ROS2 Nodes
 
 ## Context
-The JetRacer project requires reliable lane detection capabilities for assisted driving features. The implementation needs to process camera feed data and provide accurate lane information to the control system. There are multiple approaches to implementing lane detection, each with different trade-offs.
+For this module, our system requires reliable lane detection capabilities for assisted driving features. The implementation needs to process camera feed data and provide accurate lane information to the control system. There are multiple approaches to implementing lane detection, each with different trade-offs.
 
 The key considerations are:
-- **Processing Power**: Limited computational resources on Raspberry Pi
 - **Reliability**: Consistent lane detection under varying conditions
 - **Maintainability**: Ability to improve and modify the implementation
-- **Development Effort**: Time and expertise required for implementation
+- **Development Effort**: Time and expertise required for implementations
 - **Flexibility**: Ability to adapt to different road conditions
-- **Distributed Processing**: Potential to offload processing to a separate computer
+- **Processing Power**: Limited computational resources of our system?
 
-## Decision
+## Decisions
 We could be implementing a modular architecture that allows different lane detection strategies while maintaining consistent interfaces. The two main implementation approaches are:
 
 1. **Classical Computer Vision Approach**:
@@ -73,8 +72,7 @@ flowchart LR
     mode_handler -->|geometry_msgs/Twist| dc[DC Motor Node]
     
 ```
-```
-```
+
 2. **Development Phases**:
    - Phase 1: Implement classical CV approach
      - Establish baseline performance
@@ -92,17 +90,9 @@ flowchart LR
 - Clear separation of concerns between detection and control
 - Flexibility to upgrade or change implementations
 - Ability to distribute processing across machines
+- Great opportunity to LEARN
 
 ### Negative
 - Need to maintain multiple implementations
 - Additional complexity in system architecture
-- Potential overhead in message passing
 - Need for comprehensive testing of both approaches
-
-## Compliance
-Both implementations must:
-- Adhere to defined message interfaces
-- Meet real-time processing requirements
-- Handle error cases gracefully
-- Provide confidence metrics with detections
-- Support distributed processing configuration

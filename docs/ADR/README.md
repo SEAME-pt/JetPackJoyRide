@@ -8,4 +8,6 @@
 5. [ADR-004: System services](instrument_cluster/adr_004_system_services.md)
 6. [ADR-005: Testing strategy](instrument_cluster/adr_005_unit_test_strategy.md)
 
-## Project 2
+## Lane keeping
+7. [ADR-000: Algoritm and architecture](lane_keeping/adr_000_algorithm_&_architecture.md)
+
