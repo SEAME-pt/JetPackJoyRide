@@ -1,4 +1,4 @@
-# ADR-006: Lane Detection Implementation Strategy for ROS2 Nodes
+# ADR-006: Lane Detection Implementation Startegy
 
 ## Context
 For this module, our system requires reliable lane detection capabilities for assisted driving features. The implementation needs to process camera feed data and provide accurate lane information to the control system. There are multiple approaches to implementing lane detection, each with different trade-offs.
