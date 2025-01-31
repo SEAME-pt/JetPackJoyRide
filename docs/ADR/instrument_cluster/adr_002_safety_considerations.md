@@ -16,33 +16,27 @@ The JetRacer project requires a software framework for handling communication be
 ## Decision
 The following safety measures could be adopted to mitigate the risks:
 
-### 1. Redundancy
-- **Node Redundancy**: Deploy redundant nodes for safety-critical functions, with a primary-backup setup. Use heartbeats to monitor node health and enable seamless failover.
-- **Communication Redundancy**: Implement fallback IPC mechanisms (e.g., shared memory or CAN bus) to bypass middleware failures for critical data.
-- **Hardware Redundancy**: Introduce secondary Jetson Nano units or microcontrollers for key safety tasks.
-
-### 2. Lifecycle Nodes
+### 1. Lifecycle Nodes
 - Use ROS2 Lifecycle Nodes for critical components to manage their states (e.g., activation, deactivation, and fault recovery).
 - Add a supervisory node to monitor lifecycle states and automate recovery actions like restarting or switching to redundant nodes.
 
-### 3. Real-Time Capabilities
+### 2. Real-Time Capabilities
 - **RTOS Integration**: Use an RTOS (e.g., FreeRTOS or Zephyr) for time-sensitive tasks, integrated with ROS2 via micro-ROS.
 - **QoS Configuration**:
   - **Reliable QoS**: Ensure critical messages are always delivered.
   - **Deadline QoS**: Set deadlines for time-sensitive topics to detect and address delays.
   - **History QoS**: Optimize history settings (e.g., `KEEP_LAST`) to reduce latency.
 
-### 4. Security and Integrity
-- **SROS2**:
-  - Encrypt communication and authenticate nodes to secure data.
-  - Enforce strict access control policies for joining nodes.
-- **Message Integrity**:
-  - Implement checksums or hash-based integrity validation for critical messages.
-
-### 5. Fault Isolation
+### 3. Fault Isolation
 - **Prioritization**:
   - Ensure critical nodes are prioritized for CPU, memory, and network resources.
   - Deactivate non-critical nodes when resource contention occurs.
+
+### 4. Redundancy
+- **Node Redundancy**: Deploy redundant nodes for safety-critical functions, with a primary-backup setup. Use heartbeats to monitor node health and enable seamless failover.
+- **Communication Redundancy**: Implement fallback IPC mechanisms (e.g., shared memory or CAN bus) to bypass middleware failures for critical data.
+- **Hardware Redundancy**: Introduce secondary Jetson Nano units or microcontrollers for key safety tasks.
+
 
 ## Consequences
 ### Benefits
@@ -61,4 +55,3 @@ Accepted
 
 ## Related ADRs
 - [ADR-001: Using ROS2 with Fast DDS Middleware](#adr_001_use_ros2.md)
-
