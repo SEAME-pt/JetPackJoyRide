@@ -1,10 +1,9 @@
 [submodule "SEAME_WarmUp-24-25"]
 	path = SEAME_WarmUp-24-25
 	url = https://github.com/Axel-ex/SEAME-WarmUp-24-25.git
-
-[submodule "Cluster"]
-	path = Cluster
-	url = https://github.com/Xyckens/SEAME-Cluster-24-25.git
 [submodule "SEAME-Cluster-24-25"]
 	path = SEAME-Cluster-24-25
 	url = https://github.com/Xyckens/SEAME-Cluster-24-25.git
+[submodule "SEAME-ADS-Autonomous-lane-detection-24-25"]
+	path = SEAME-ADS-Autonomous-lane-detection-24-25
+	url = https://github.com/Axel-ex/lane_keeping_ros.git
