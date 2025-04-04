@@ -1,6 +1,6 @@
 #!/bin/bash
 docker run \
-	--name piracer \
+	--name jetracer \
 	--rm \
 	--net=host \
 	-v /tmp/.X11-unix:/tmp/.X11-unix \
@@ -18,4 +18,4 @@ docker run \
 	-v /run/udev:/run/udev:ro \
 	--group-add video \
 	-e LAUNCH_FILE="JetRacer_manual_launch.py" \
-	piracer_image
+	jetracer_image

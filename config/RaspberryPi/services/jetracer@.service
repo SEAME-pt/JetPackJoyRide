@@ -4,8 +4,8 @@ Wants=network-online.target docker.service
 After=network-online.target docker.service
 
 [Service]
-ExecStart=/bin/bash /usr/local/bin/piracer_%i.sh
-ExecStop=/usr/bin/docker stop ros2_humble
+ExecStart=/bin/bash /usr/local/bin/jetracer_%i.sh
+ExecStop=/usr/bin/docker stop jetracer
 Restart=always
 RemainAfterExit=yes
 Type=simple
