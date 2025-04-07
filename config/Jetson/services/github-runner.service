@@ -1,0 +1,14 @@
+[Unit]
+Description=GitHub Actions Runner
+After=network.target
+
+[Service]
+ExecStart=/home/axel/actions-runner/run.sh
+WorkingDirectory=/home/axel/actions-runner
+Restart=always
+User=axel
+
+[Install]
+WantedBy=multi-user.target
+
+
