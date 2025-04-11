@@ -11,4 +11,4 @@
 ## Lane keeping
 1. [ADR-000: Algoritm and architecture](lane_keeping/adr_000_algorithm_&_architecture.md)
 2. [ADR-001: ONNX to TensorRT conversion](lane_keeping/adr_001_RT_conversion.md)
-
+3. [ADR-002: Machine Learning](lane_keeping/adr_002_machine_learning_model.md)
