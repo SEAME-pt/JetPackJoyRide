@@ -9,6 +9,7 @@
 6. [ADR-005: Testing strategy](instrument_cluster/adr_005_unit_test_strategy.md)
 
 ## Lane keeping
-1. [ADR-000: Algoritm and architecture](lane_keeping/adr_000_algorithm_&_architecture.md)
-2. [ADR-001: ONNX to TensorRT conversion](lane_keeping/adr_001_RT_conversion.md)
-3. [ADR-002: Machine Learning](lane_keeping/adr_002_machine_learning_model.md)
+1. [ADR-001: Algoritm and architecture](lane_keeping/adr_000_algorithm_&_architecture.md)
+2. [ADR-002: ONNX to TensorRT conversion](lane_keeping/adr_001_RT_conversion.md)
+3. [ADR-003: Machine Learning](lane_keeping/adr_002_machine_learning_model.md)
+4. [ADR-004: ML U-Net Model Optimization](lane_keeping/adr_004_ml_unet_model_optimization.md)
