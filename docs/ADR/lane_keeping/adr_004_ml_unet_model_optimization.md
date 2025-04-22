@@ -28,10 +28,8 @@ Below is an index of various attempts made to optimize the models, including the
 
 - **Input / Output:**
   [Describe the input and output types, e.g., image size, number of channels, etc.]
-
 - **Number of Layers:**
   [Specify the number of layers in the model.]
-
 - **Dataset Size:**
   [Indicate the size of the dataset used for training.]
 
@@ -39,16 +37,40 @@ Below is an index of various attempts made to optimize the models, including the
 
 - **FPS (Frames Per Second):**
   [Provide the FPS measurement after running the model.]
-
 - **Model Size:**
   [Provide the size of the model before conversion, typically in MB.]
-
 - **Size when converted to ONNX:**
   [Provide the model size after conversion to ONNX format.]
-
 - **Size when converted to TensorRT:**
   [Provide the model size after conversion to TensorRT format.]
 
-- **Results Example:**
-  [Visual results obtained using the model.]
+## Attempt #1 : Aprox 3.7 FPS
 
+### Description:
+
+Original model, pre optimization attempts.
+
+#### Model Specifications:
+
+- **Input / Output:**
+
+  * Input: `(256, 256, 3)`
+  * Output: `(256, 256, 1)`
+
+* **Number of Layers** :
+
+| Layer Type      | Count        |
+| --------------- | ------------ |
+| Conv2D          | 15           |
+| Conv2DTranspose | 4            |
+| MaxPooling2D    | 4            |
+| Concatenate     | 4            |
+| **Total** | **27** |
+
+- **Dataset Size:**
+  * Jetracer mat: `185`
+  * TuSimple: `3626`
+  * Total: `3811`
+- **Model Size:** 360 Mb
+- **ONNX Size:** 120 Mb
+- **TensorRT Size:** 310 Mb
