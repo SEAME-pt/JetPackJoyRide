@@ -71,6 +71,11 @@ Original model, pre optimization attempts.
   * Jetracer mat: `185`
   * TuSimple: `3626`
   * Total: `3811`
+
+* **Training settings**:
+  * Epochs: 20
+  * Batch size: 4
+
 - **Model Size:** 360 Mb
 - **ONNX Size:** 120 Mb
 - **TensorRT Size:** 310 Mb
