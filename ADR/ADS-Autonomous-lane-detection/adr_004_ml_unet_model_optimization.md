@@ -21,6 +21,9 @@ Below is an index of various attempts made to optimize the models, including the
 ## Attempt Index
 
 - [Attempt #1: 3.7 FPS](#attempt-1-37-fps)
+- [Attempt #2: 3.63 FPS - reduced dataset](#attempt-2-363-fps---reduced-dataset)
+- [Attempt #3: 8.98 FPS - reduced dataset + halved filters](#attempt-3-898-fps---reduced-dataset--halved-filters)
+- [Attempt #4: 10.01 FPS - reduced dataset + halved filters + less layers](#attempt-4-1001-fps---reduced-dataset--halved-filters--less-layers)
 
 ## Attempt #1: 3.7 FPS
 
@@ -57,4 +60,120 @@ Original model, pre optimization attempts.
 - **Model Size:** 360 Mb
 - **ONNX Size:** 120 Mb
 - **TensorRT Size:** 310 Mb
+- **Visual Results:**
+
+## Attempt #2: 3.63 FPS - reduced dataset
+
+### Description:
+
+Original model, only with a significantly smaller dataset.
+
+#### Model Specifications:
+
+- **Input / Output:**
+
+  * Input: `(256, 256, 3)`
+  * Output: `(256, 256, 1)`
+
+* **Number of Layers** :
+
+| Layer Type      | Count        |
+| --------------- | ------------ |
+| Conv2D          | 15           |
+| Conv2DTranspose | 4            |
+| MaxPooling2D    | 4            |
+| Concatenate     | 4            |
+| **Total** | **27** |
+
+- **Dataset Size:**
+  * Jetracer mat: `185`
+  * Total: 185
+
+* **Training settings**:
+  * Epochs: 20
+  * Batch size: 4
+
+- **Model Size:**
+- **ONNX Size:** 119 Mb
+- **TensorRT Size:** 155 Mb
+- **Visual Results:**
+
+## Attempt #3: 8.98 FPS - reduced dataset + halved filters
+
+### Description:
+
+For this attempt, we kept the same number of layers but halved the filters used in them:
+
+64 is now 32
+
+128 is now 64
+
+The bottleneck of the model is now 512 instead of the previous 1024.
+
+#### Model Specifications:
+
+- **Input / Output:**
+
+  * Input: `(256, 256, 3)`
+  * Output: `(256, 256, 1)`
+
+* **Number of Layers** :
+
+| Layer Type      | Count        |
+| --------------- | ------------ |
+| Conv2D          | 15           |
+| Conv2DTranspose | 4            |
+| MaxPooling2D    | 4            |
+| Concatenate     | 4            |
+| **Total** | **27** |
+
+- **Dataset Size:**
+  * Jetracer mat: `185`
+  * Total: 185
+
+* **Training settings**:
+  * Epochs: 20
+  * Batch size: 4
+
+- **Model Size:**
+- **ONNX Size:** 30 Mb
+- **TensorRT Size:** 39 Mb
+- **Visual Results:**
+
+## Attempt #4: 10.01 FPS - reduced dataset + halved filters + less layers
+
+### Description:
+
+NOTE: This one needs further debugging as output layer has been hardcoded.
+
+For this attempt, we kept the halvetd filters (same has above) and a reduced number of layers. See model specifications.
+
+#### Model Specifications:
+
+- **Input / Output:**
+
+  * Input: `(256, 256, 3)`
+  * Output: `(256, 256, 1)`
+
+* **Number of Layers** :
+
+| Layer Type      | Count        |
+| --------------- | ------------ |
+| Conv2D          | 9            |
+| Conv2DTranspose | 4            |
+| MaxPooling2D    | 4            |
+| Concatenate     | 4            |
+| **Total** | **21** |
+
+- **Dataset Size:**
+  * Jetracer mat: `185`
+  * Total: 185
+
+* **Training settings**:
+  * Epochs: 20
+  * Batch size: 4
+
+- **Model Size:**
+- **ONNX Size:** 18 Mb
+- **TensorRT Size:** 22 Mb
 - **Visual Results:**
