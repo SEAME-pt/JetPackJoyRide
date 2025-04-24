@@ -57,7 +57,6 @@ This project implements an **Autonomous Driving System (ADS)**, integrating **la
 
 **Structure:**
 
-
 ---
 
 ### ⚡ [SEAME-ML-Model-Jetson-24-25](https://github.com/Axel-ex/SEAME-ML-Model-Jetson-24-25)
@@ -70,7 +69,21 @@ Reference repo for doing inference using TensorRT directly in **C++** on the **J
 - `benchmarking/`: Times multiple engine files and reports inference performance.
 - `test_engine/`: Runs inference on a single image (debug-focused).
 
----
+--- 
+
+### 📄 [ADR](https://github.com/SEAME-pt/JetPackJoyRide/tree/main/ADR)
+
+The Architecture Decision Record (ADR) folder documents key technical choices we've made throughout the project. These markdown files act as a timeline of our understanding, containing both architectural decisions and problem-solving insights.
+
+> Every major shift—be it in stack design, integration issues, or system architecture—is documented here for future reference and reproducibility.
+
+--- 
+
+### ⚙️  [config](https://github.com/SEAME-pt/JetPackJoyRide/tree/main/config)
+
+This directory contains setup and service configuration files for both the Jetson Nano and the Raspberry Pi, enabling smooth deployment and reproducibility across the team.
+
+--- 
 
 ## 🧠 Contributors & Acknowledgements
 
