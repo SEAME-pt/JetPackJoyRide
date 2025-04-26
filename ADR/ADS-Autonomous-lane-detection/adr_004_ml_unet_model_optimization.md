@@ -93,7 +93,7 @@ Original model, only with a significantly smaller dataset.
   * Epochs: 20
   * Batch size: 4
 
-- **Model Size:**
+- **Model Size:** 360 MB
 - **ONNX Size:** 119 Mb
 - **TensorRT Size:** 155 Mb
 - **Visual Results:**
@@ -135,7 +135,7 @@ The bottleneck of the model is now 512 instead of the previous 1024.
   * Epochs: 20
   * Batch size: 4
 
-- **Model Size:**
+- **Model Size:** 90 Mb
 - **ONNX Size:** 30 Mb
 - **TensorRT Size:** 39 Mb
 - **Visual Results:**
@@ -173,7 +173,7 @@ For this attempt, we kept the halvetd filters (same has above) and a reduced num
   * Epochs: 20
   * Batch size: 4
 
-- **Model Size:**
+- **Model Size:** 54 Mb
 - **ONNX Size:** 18 Mb
 - **TensorRT Size:** 22 Mb
 - **Visual Results:**
