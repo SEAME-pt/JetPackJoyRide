@@ -60,7 +60,6 @@ Original model, pre optimization attempts.
 - **Model Size:** 360 Mb
 - **ONNX Size:** 120 Mb
 - **TensorRT Size:** 310 Mb
-- **Visual Results:**
 
 ## Attempt #2: 3.63 FPS - reduced dataset
 
@@ -96,7 +95,6 @@ Original model, only with a significantly smaller dataset.
 - **Model Size:** 360 MB
 - **ONNX Size:** 119 Mb
 - **TensorRT Size:** 155 Mb
-- **Visual Results:**
 
 ## Attempt #3: 8.98 FPS - reduced dataset + halved filters
 
@@ -138,13 +136,10 @@ The bottleneck of the model is now 512 instead of the previous 1024.
 - **Model Size:** 90 Mb
 - **ONNX Size:** 30 Mb
 - **TensorRT Size:** 39 Mb
-- **Visual Results:**
 
 ## Attempt #4: 10.01 FPS - reduced dataset + halved filters + less layers
 
 ### Description:
-
-NOTE: This one needs further debugging as output layer has been hardcoded.
 
 For this attempt, we kept the halvetd filters (same has above) and a reduced number of layers. See model specifications.
 
@@ -176,4 +171,3 @@ For this attempt, we kept the halvetd filters (same has above) and a reduced num
 - **Model Size:** 54 Mb
 - **ONNX Size:** 18 Mb
 - **TensorRT Size:** 22 Mb
-- **Visual Results:**
