@@ -141,7 +141,7 @@ The bottleneck of the model is now 512 instead of the previous 1024.
 
 ### Description:
 
-For this attempt, we kept the halvetd filters (same has above) and a reduced number of layers. See model specifications.
+For this attempt, we kept the halvetd filters (same has above) and a reduced number of layers. See model specifications. Results are, unfortunatelly, very bad.
 
 #### Model Specifications:
 
