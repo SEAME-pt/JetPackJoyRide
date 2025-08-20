@@ -51,11 +51,16 @@ This project implements an **Autonomous Driving System (ADS)**, integrating **la
 
 ### ⚙️  [SEAME-MachineLearningModel_24-25](https://github.com/peterbikes/SEAME-MachineLearningModel_24-25)
 
-....
+Development and training of our **U-Net model** for **lane and object detection**.  
 
-> Used to create / train / convert our model 
+> This repo focuses on model creation, training, and testing before deployment. Models are exported to **ONNX** and later optimized with **TensorRT** for inference on the Jetson Nano.
 
-**Structure:**
+**Key Folders:**
+- `datasets/`: Datasets used for training and evaluation.  
+- `srcs_py/`: Python code for model architecture, training pipeline, and ONNX conversion.  
+- `srcs_cpp/`: C++ integration code for running the model inside the JetRacer.  
+- `tests/`: Debug and verification scripts, mostly in Python.  
+
 
 ---
 
