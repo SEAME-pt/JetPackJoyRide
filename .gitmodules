@@ -1,20 +1,20 @@
 [submodule "SEAME_WarmUp-24-25"]
 	path = SEAME_WarmUp-24-25
-	url = https://github.com/Axel-ex/SEAME-WarmUp-24-25.git
+	url = https://github.com/Axel-ex/SEAME-WarmUp-24-25/tree/main
 	branch = main
 [submodule "SEAME-ADS-Autonomous-lane-detection-24-25"]
 	path = SEAME-ADS-Autonomous-lane-detection-24-25
-	url = https://github.com/Axel-ex/lane_keeping_ros.git
+	url = https://github.com/Axel-ex/SEAME-ADS-Autonomous-lane-detection-24-25/tree/main
 	branch = main
 [submodule "SEAME-Cluster-24-25"]
 	path = SEAME-Cluster-24-25
-	url = https://github.com/Xyckens/SEAME-Cluster-24-25.git
+	url = https://github.com/Xyckens/SEAME-Cluster-24-25/tree/main
 	branch = main
 [submodule "SEAME-MachineLearningModel_24-25"]
 	path = SEAME-MachineLearningModel_24-25
-	url = https://github.com/peterbikes/SEAME-MachineLearningModel_24-25
+	url = https://github.com/peterbikes/SEAME-MachineLearningModel_24-25/tree/main
 	branch = main
 [submodule "SEAME-ML-Model-Jetson-24-25"]
 	path = SEAME-ML-Model-Jetson-24-25
-	url = https://github.com/Axel-ex/SEAME-ML-Model-Jetson-24-25.git
+	url = https://github.com/Axel-ex/SEAME-ML-Model-Jetson-24-25.git/tree/main
 	branch = main
