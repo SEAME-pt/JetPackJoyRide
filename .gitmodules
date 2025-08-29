@@ -10,6 +10,7 @@
 [submodule "SEAME-MachineLearningModel_24-25"]
 	path = SEAME-MachineLearningModel_24-25
 	url = https://github.com/peterbikes/SEAME-MachineLearningModel_24-25
+	branch = main
 [submodule "SEAME-ML-Model-Jetson-24-25"]
 	path = SEAME-ML-Model-Jetson-24-25
 	url = https://github.com/Axel-ex/SEAME-ML-Model-Jetson-24-25.git
